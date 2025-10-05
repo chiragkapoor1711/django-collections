@@ -1,0 +1,18 @@
+{% extends 'genre/base.html' %}
+
+{% block content %}
+<h1 class="text-center">{{ object.collection_name }}</h1>
+<p class="text-center">{{ object.description }}</p>
+
+<div class="row mt-4">
+    {% for pieceobj in object.piece_set.all %}
+    <div class="col-md-4 text-center mb-4">
+        <img src="{{ pieceobj.piececover }}" class="img-fluid" height="200" width="200">
+        <h3>{{ pieceobj.title }} - {{ pieceobj.artist }}</h3>
+        <p>Year: {{ pieceobj.year }}</p>
+    </div>
+    {% empty %}
+    <p>No pieces available in this collection.</p>
+    {% endfor %}
+</div>
+{% endblock %}

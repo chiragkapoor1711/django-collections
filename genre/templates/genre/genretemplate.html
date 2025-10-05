@@ -1,0 +1,14 @@
+{% extends 'genre/base.html' %}
+
+{% block content %}
+<div class="row">
+    {% for genreobj in object_list %}
+    <div class="col-md-4 text-center mb-4">
+        <img src="{{ genreobj.collcover }}" alt="{{ genreobj.collection_name }}" width="200" height="200">
+
+        <h2><a href="{% url 'details' genreobj.id %}">{{ genreobj.collection_name }}</a></h2>
+        <p>{{ genreobj.description }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
